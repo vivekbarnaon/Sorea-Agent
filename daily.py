@@ -7,16 +7,7 @@ import logging
 from typing import Union, Tuple
 
 
-def run_daily_task_for_user(email: str) -> None:
-    
-    try:
-        config = Config()
-        firebase_manager = FirebaseManager()
-        message_manager = MessageManager(firebase_manager)
-        summary_manager = SummaryManager(config, firebase_manager.db)
-    except Exception as e:
-        logging.error(f"Error initializing components for {email}: {e}", exc_info=True)
-        return 
+
 
     try:
         
