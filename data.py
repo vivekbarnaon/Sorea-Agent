@@ -3,6 +3,14 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 
+class Event(BaseModel):
+    """Tracks important upcoming events mentioned in conversation."""
+    eventid: str
+    eventType: str  # 'exam', 'interview', 'appointment'
+    description: str  
+    eventDate: str  
+    mentionedAt: str = Field(default_factory=lambda: datetime.now().isoformat())  
+    isCompleted: bool = False 
 
 
 class UserProfile(BaseModel):
